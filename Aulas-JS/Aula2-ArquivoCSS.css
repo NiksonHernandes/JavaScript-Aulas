@@ -1,0 +1,53 @@
+/*para limpar a formatação do site*/
+*{
+	margin: 0px;/*centralizar tudo na tela, margem externa*/
+	padding: 0px;/*dar um espaço dentro, margem interna*/
+}
+
+header {
+	background: #1B1D61;
+	color: white;
+	height: 200px ;/*altura*/
+	text-align: center;/*centralizar o texto no eixo x*/
+	font-size: 70px;
+	padding-top: 20px;/*margem do topo no eixo y*/ 
+}
+
+nav{
+	background: black;
+	float: left;
+	width: 100%;
+}
+
+
+.link{
+	background: #373863;
+	color: black;
+	width: 25%;
+	float: left;/*deixa o elemento como um bloco, um retangulo e o width só funciona em bloco*/
+	text-align: center;
+	padding: 10px 0;
+	text-decoration: none;
+	border-radius: 15px ;
+
+}
+
+.link:hover {
+	background: red;
+	transition: 0.5s; /*transição na chegada do mouse*/
+}
+
+section{
+	background: #7F90E6;
+	padding: 70px;
+	opacity: 0.5px;
+	font-size: 25px;
+}
+
+footer{
+	background: #3145AD;
+	color: white;
+	text-align: center;
+	font-size: 34px;
+	padding: 15px;
+}

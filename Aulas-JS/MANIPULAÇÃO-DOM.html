@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manipulação completa do DOM </title>
+    
+    <style>
+        body{
+            background-color: gainsboro;
+            font-family: monospace;
+        }
+
+        h1, #link{
+            font-size: 45px;
+            color: aqua
+        }
+        
+        #btn{
+            color: red;
+            font-size: 30px;
+        }
+
+        .paragrafo{
+            font-size: 20px;
+        }
+
+    </style>
+<body>
+    <h1 id='titulo' >Manipulação completa do DOM </h1>
+
+    <p class="paragrafo">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Asperiores magnam quae numquam deleniti nemo quos excepturi quibusdam explicabo, nulla obcaecati eligendi mollitia sint, unde iure suscipit placeat sit iste itaque!</p>
+    <p class="paragrafo">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatem fugit dolorem asperiores veritatis dolores quisquam sapiente, cumque, similique voluptate perspiciatis ipsa, molestias deserunt eius? Blanditiis reiciendis provident deserunt ratione mollitia!</p>
+    <p class="paragrafo">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo, ab sed odit laborum nemo doloremque facilis error consequuntur explicabo omnis id pariatur eligendi unde delectus. Facere itaque earum pariatur asperiores!</p>
+
+    <button id="btn" >Botão</button><br>
+
+    <a href="#" id="link">LinkTeste</a>
+    
+    <script>
+        //vasculhando o objeto
+        console.log(document) //ver todas as opções do document
+        
+        console.dir(document.links)
+
+        //BUSCANDO E SELECIONANDO ELEMENTOS 
+            //.getElementById (returns element) -> document.getElementById("btn")
+            //.getElementsByClassName (returns HTMLCollection) -> document.getElementsByClassName("paragrafo")
+            //.getElementsByTagName (return HTMLCollection) -> document.getElementsByTagName("a") // ("link") ("h1")
+            //.querySelector (returns element) -> document.querySelector("#link") -> retorna 1 elemento só  
+            //.querySelectorAll (returns NodeList) -> document.querySelectorAll("h1") -> retorna varios elementos
+
+        //MANIPULANDO CONTEÚDO
+
+        let paragrafo = document.querySelector(".paragrafo")
+        console.log(paragrafo.textContent) //mostra o conteúdo do texto
+        console.log(paragrafo.innerText = "TEXTO ALTERADO COM .INNERTEXTS")
+        console.log(paragrafo.innerHTML = "<h3>TÍTULO DE TESTE</h3>")
+    
+            //.textContent -> conteúdo de texto 
+            //.innerText -> altera o texto do elemento 
+            //.innerHTML -> altera o HTML 
+            //.value (inputs) 
+            
+        //ALTERAR ESTILOS 
+            let app = document.querySelector(".paragrafo")
+            app.style.backgroundColor ='gray'
+            app.style.border = "5px solid red"
+            app.style.border = 'none'
+
+            //.style.property (camelCase -> ex: backgruondColor)
+            //.classList
+                //.add()
+                //.remove()
+                //.toggle()
+                
+
+
+    </script>
+</body>
+</html>/

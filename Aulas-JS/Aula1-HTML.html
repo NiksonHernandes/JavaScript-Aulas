@@ -1,0 +1,156 @@
+<!DOCTYPE html> 
+<html lang="pt-br"> 
+
+	<head> <!-- filho do html --> 
+
+		<title>Aula1-HTML</title> <!-- Adiciona o título na pág -->
+		<meta charset="utf-8" /> <!-- META - é um meta dado, uma informação adicional -->
+		<!-- charset é um ATRIBUTO da TAG META, UTF-08, é um VALOR, é um padrão internacional -->
+	</head>
+
+	<body> <!-- filho do html --> 
+		
+		<header>
+			Cabeçalho
+		</header>
+
+		<nav>
+			<br>Pag de contato</br> 
+			<a href="https://www.facebook.com/nikson.hernandes14/"> Aula 1 - Meu facebook </a>
+
+			<!--<img src="https://www.hostinger.com.br/tutoriais/wp-content/uploads/sites/12/2018/11/Como-Criar-um-Site.png" alt="A imagem não carregou" title="Imagem da internet" /> -->
+
+			<figure> 
+				<img src="https://www.hostinger.com.br/tutoriais/wp-content/uploads/sites/12/2018/11/Como-Criar-um-Site.png" alt="Falhou" title="Imagem da Internet">
+
+				<figcaption> LEGENDA DA IMAGEM </figcaption>
+			</figure>
+
+			<table>
+				<tr> <!-- Linha -->
+					<td> Linha 1, Coluna 1</td> <!-- Coluna -->
+					<td> Linha 1, Coluna 2</td>
+				</tr>
+				<tr>
+					<td> Linha 2, Coluna 1</td>
+					<td> Linha 2, Coluna 2</td>
+				</tr>
+			</table>
+
+			<br /> <!-- quebra linha -->
+
+			<table>
+				<thead> <!-- Cabeçalho -->
+					<tr> <!-- Linha -->
+						<td> Produto </td> <!-- Coluna -->
+						<td> Preço </td>
+						<td> TOTAL</td>
+					</tr>
+				</thead>
+
+				<tbody> <!-- Corpo --> 
+					<tr>
+						<td> Feijão </td>
+						<td> R$ 5,00 </td>
+					</tr>
+				</tbody>
+
+				<tfoot>
+					<tr>
+						<td> Total </td>
+						<td></td>
+						<td> R$ 18,00 </td>
+					</tr>
+				</tfoot>
+			</table>
+	
+		</nav>
+
+		<section>
+
+			<h1> H1 </h1>
+			<h4> H4 </h4>
+			<h6> H6 </h6>
+
+			<p> <i>Seção - conteúdo</i> </p> <!-- i de ITALICO-->
+
+
+			 <form action="file:///C:/Users/Acer/Desktop/VSCODE/Aulas-JS/Aula1-HTML.html" method="post">
+                
+                <input type="text" placeholder="Digite aqui"> <br/>
+                <input type="checkbox" name="">Checkbox <br/> 
+                <input type="radio">Radio button <br/>
+                <input type="range"> <br/>
+                <input type="submit" value="Enviar">
+
+            </form>
+
+            <!-- Lista Ordenada com type-->
+            <ol type="A">
+
+            	<li>Item 1</li>
+            	<li>Item 2</li>
+            	<li>Item 3</li>
+
+            </ol>
+            <br />
+
+            <!--Lista Não ordenada -->
+            <ul>
+            	
+            	<li>Item 1</li>
+            	<li>Item 2</li>
+            	<li>Item 3</li>
+
+            </ul>
+            <br />
+
+            <!--~Lista por definição-->
+            <dl>
+
+            	<dt>Título 1</dt><!--Título-->
+            	<dd>Definição 1</dd><!--Definição-->
+            	<dt>Banana:</dt>
+            	<dd>Fruta amarela</dd>
+            	<dt>Titulo 3</dt>
+            	<dd>Definição 3</dd>
+
+            </dl>
+            <br />
+
+            <!--Formatação -->
+            <p>Texto em negrito com <b>bold</b> e <strong>strong</strong>.</p>
+            <p>Texto em itálico com <i>italic</i> e <em>ênfase</em>. </p>
+            <p>Texto <sup>sobrescrito</sup>  e <sub>subescrito</sub>. </p>
+            <p>Texto <ins>inserido</ins> e <del>excluído</del>.</p>
+            <p>Texto <small>pequeno</small> e <mark>destacado</mark> .</p>
+            <br />
+
+            <!-- Audio-->
+            <audio controls src="10 _ 14 Hz.mp3">
+            	Seu navegador não suporta.
+            </audio>
+            <br />
+
+            <!--Video-->
+            <video width="640" height="480" src="Testevideo.mp4" controls autoplay loop>
+            	Seu browser não suporta vídeo em HTML5.
+            </video>
+            <br />
+
+            <!-- Span-->
+            <p>Este é um texto com um <span>trecho em destaque</span>.</p>
+
+            <p>
+            	Este é um texto com um <span style="background: #1abc9c; border-radius: 5px; padding: 5px;">
+            	trecho em destque</span>
+            </p>
+
+
+		</section>
+		<footer>
+			Rodapé
+		</footer>
+		
+	</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For...in, for...of</title>
+</head>
+<body>
+    
+    <script>    
+
+    //for..in em OBJETOS
+
+    const pessoa = {
+        nome: 'João',
+        idade: 18,
+        sexo: 'Masculino',
+        time: 'Santos'
+    };
+
+    //loop 
+
+    //chave = key-value;
+    for(chave in pessoa){
+        console.log(chave,pessoa["nome"]);
+    }
+
+    //------------------------------------------------------------------
+    //for ..in em ARRAYS;
+
+    const cores = ['vermelho', 'azul', 'preto', 'branco'];
+
+    //loop
+    for(let indice in cores){
+        //console.log(indice); //imprime só o indice dos elementos no array
+        //console.log(cores[indice]);//imprime só a cor, sem o índice na frente
+        //ou
+        console.log(indice, cores[indice])//imprime o indice e a cor na frente
+    }
+
+    //------------------------------------------------------------------
+
+    //JEITO SIMPLIFICADO COM O ARRAYS - for...of
+
+    for(let cor of cores){//imprimir cor(indice) de cores(array)
+
+        console.log(cor);
+    }
+
+    </script>
+
+</body>
+</html>

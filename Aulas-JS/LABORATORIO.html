@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LABORATORIO DE TESTES</title>
+    <style>
+        .blue{
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <h1>LABORATÓRIO DE TESTES</h1>
+
+    <h2 id="title">sera atribuido</h2>
+
+    <button id="btn-set">Set</button>
+    <button id="btn-remove">Remove</button>
+    <button id="btn-get">Get</button>
+
+    <p id='paragrafo'></p>
+
+    <script>
+        document.getElementById("btn-set").onclick =()=>{
+            document.getElementById("title").setAttribute("class", 'blue')
+        }
+
+        document.getElementById("btn-remove").onclick =()=>{
+            document.getElementById("title").removeAttribute("class")
+        }
+
+        document.getElementById("btn-get").onclick =()=>{
+            let valor = document.getElementById("title").getAttribute("class")
+            document.getElementById("paragrafo").innerHTML += valor;
+        }
+
+        //clonando objeto 
+
+        const Pessoa = {
+            nome: "Nikson",
+            idade: '23',
+            sexo: 'Masculino',
+            fala: function(){
+                return `Meu nome é: ${this.nome}`
+            }
+        }
+
+        const Gostos = {
+            hobbie: "Jogar",
+            dormir: "8horas por dia"
+        }
+
+        console.log(Pessoa)
+
+        const novaPessoa = Object.assign({
+            formacacao: "Ensino médio completo"
+        }, Pessoa);
+        console.log(novaPessoa);
+
+        //juntar 2 objtos com spread
+        const novaPessoa2 = {
+            ...Pessoa,
+            ...Gostos,
+
+           estado: "Solteiro"
+        }
+        console.log(novaPessoa2);
+        
+    </script>
+    
+</body>
+</html>

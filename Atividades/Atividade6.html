@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>classe</title>
+</head>
+<body>
+    
+    <h1>Atividades 1</h1>
+    <h2>Exemplo classe - Atividade 1</h2>
+    <span id="txtSpan1"></span>
+    
+
+    <script>
+        //Apresente  um  exemplo  de  código  JavaScript  para  a  criação  de  uma classe (Produto) que contém três propriedades (código, descrição e valor). 
+
+        class Produto{
+            constructor(codigo, descricao, valor){
+
+                this._codigo = codigo;
+                this._descricao = descricao;
+                this._valor = valor;
+            }
+
+            mostraTudo(){
+                return `Código: ${this._codigo} <br><br> Descrição: ${this._descricao} <br><br> Valor: ${this._valor}.`
+            }
+        }
+
+        var _produto = new Produto("123", "Cenoura", "R$12,50");
+        var _mostraTudo = _produto.mostraTudo();
+        
+        document.getElementById("txtSpan1").innerHTML = _mostraTudo;
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bibliotecas</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+
+    <h1 id='titulo'>Lista de Nomes</h1>
+
+    <ul>
+        <li>João</li>
+        <li>Maria</li>
+        <li>Paula</li>
+        <li>Karina</li>
+    </ul>
+
+    <button id="btn">Botão</button>
+    <script type="text/javascript">
+        //o que são bibliotecas? - recursos que agrupam funções/funcionalidades que podem ser utilizados em vários softwares.
+    
+        window.onload = () =>{
+            document.getElementById("btn").onclick = () =>{
+               let botao = document.getElementById('titulo');
+               let le = botao.innerHTML = "Hello JavaScript";
+            }
+        }
+
+
+        $(document).ready(function(){
+            $('#btn').click(function(){
+                $("h1").remove();
+            })
+        })
+
+    
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculo de IMC</title>
+
+    <style>
+        
+        *{
+            margin: 7px;
+            padding: 10px;
+        }
+
+        label, input, span{
+            display:block;
+            font-size: 20px;
+            font-family: monospace;
+        }
+
+        button{
+
+            width: 255px;
+            font-size: 20px;
+        }
+        h1 {
+            font-size: 50px;
+            text-shadow: 2px 2px  rgb(27, 39, 199);
+        }
+
+    </style>
+
+</head>
+<body>
+    
+    <h1>Calcule o seu IMC</h1>
+
+    <label for="camp1">Peso: </label>
+    <input type="text" id="camp1" name="camp1">
+
+    <label for="camp2">Altura: </label>
+    <input type="text" id="camp2" name="camp2">
+
+    <button id="bt_calcular">Calcular</button>
+
+    <label for="camp3">IMC: </label>
+    <input type="text" name="camp3" id="camp3">
+    <span id="result_span"></span>
+
+    <script>
+
+        function imc(num1, num2){
+
+            return (num1 / (num2 * num2)).toFixed(2);
+        }
+
+        function classificacao(x){
+           
+            if(x < 18.5){
+                document.getElementById("result_span").innerHTML = "Abaixo do peso";
+
+            }else if(x > 18.5 && x < 24.9){
+                document.getElementById("result_span").innerHTML = "Peso ideal (parabéns)";
+
+            }else if(x > 25 && x < 29.9){
+                document.getElementById("result_span").innerHTML = "Levemente acima do peso";
+
+            }else if(x > 30 && x < 34.9){
+                document.getElementById("result_span").innerHTML = "Obesidade grau I";
+
+            }else if(x > 35 && x < 39.9){
+                document.getElementById("result_span").innerHTML = "Obesidade grau II (severa)";
+
+            }else{
+                document.getElementById("result_span").innerHTML = "Obesidade III (mórbida)";
+            }
+        }
+
+        window.onload = () =>{
+
+            document.getElementById("bt_calcular").onclick = () => {
+
+                let peso = document.getElementById("camp1").value;
+                let altura = document.getElementById("camp2").value;
+        
+                let resultado; 
+
+                peso = parseFloat(peso);
+                altura = parseFloat(altura);
+
+                //chama a função imc e recebe o return com os paramentros passados
+                resultado = imc(peso, altura);
+
+                //chama a função classificação
+                classificacao(resultado);
+    
+                document.getElementById("camp3").value = resultado;
+                
+                //imc = peso / (altura x altura);
+                if(isNaN(peso) || isNaN(altura)){
+                    alert("Informe valores numéricos");
+                    document.getElementById("camp1").value = "";
+                    document.getElementById("camp2").value = "";
+                    document.getElementById("camp3").value = " ";
+                    document.getElementById("result_span").innerHTML = "";
+                }
+
+            }
+            
+        }
+
+    </script>
+</body>
+</html>

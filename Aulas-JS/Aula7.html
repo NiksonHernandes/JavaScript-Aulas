@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 7</title>
+
+    <style>
+
+        *{
+            padding: 10px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body{
+            background-image: linear-gradient(to top, #7B777D,#3C3A3D);
+        
+        }
+
+        main{
+            background-color: #DFD8E3;
+            width: 600px;
+            padding: 1em;
+            margin: auto;
+            border-radius: 15px;
+            box-shadow: 5px 5px 7px #dfd8e365; 
+
+        }
+
+
+        label, input, select, span{
+            display: block; /*coloca tudo, um embaixo do outro, coloca em blocos, em quadros*/
+            font-size: 20px;
+            font-family: monospace;
+            margin: 7px;
+        }
+
+        #but_calcular{
+            font-size: 20px;
+            margin: 7px;
+            width: 105px;
+        }
+
+        #but_calcular:hover{
+            font-size: 21px;
+            margin: 7px;
+            width: 105px;
+            color: darkgreen;
+        }
+
+        #but_limpar{
+            font-size: 20px;
+            margin: 7px;
+            width: 105px;
+        }
+
+        #but_limpar:hover{
+            font-size: 21px;
+            margin: 7px;
+            width: 105px;
+            color: red;
+        }
+
+        h1 {
+            font-size: 55px;
+            text-shadow: 2px 2px #3c3a3d6c;
+            text-align: center;
+        }
+    
+    </style>
+
+</head>
+<body>
+    <main>
+
+        <h1>Calculadora</h1>
+
+        <!--<form action="calculo.php" method="POST"> formulário-->
+        <label for="camp1">Valor 1: </label>
+        <input type="text" id="camp1" name="camp1"> <!--name ->para pegar a informação do lado do servidor--> 
+
+        <label for="camp2">Valor 2: </label>
+        <input type="text" id="camp2" name="camp2">
+
+        <label for="selecionar_oper">Selecione a operação:</label>
+        <select id="sel_operacao">
+            <option value="">Escolha uma opção</option>
+            <option value="soma">Soma</option>
+            <option value="subtracao">Subtração</option>
+        </select>
+
+        <button id="but_calcular">Calcular</button>
+        <button id="but_limpar">Limpar</button>
+
+        <span>Resultado: </span>
+        <span id="resultado_span"></span>
+        <!--</form>-->
+
+    </main>
+
+    <script>
+
+        somar = (num1, num2) => {
+            return num1 + num2;
+        }
+
+        function subtrair(num1, num2){
+            return num1 - num2;
+        }
+
+        window.onload = () =>{ //evento para garantir que o doc html esteja carregado antes de mostrar os código
+
+            document.getElementById("but_calcular").onclick = function() {
+
+                let valor1 = document.getElementById("camp1").value;
+                let valor2 = document.getElementById("camp2").value;
+                let operacao = document.getElementById("sel_operacao").value;//validar selects
+                let resultado;
+
+                valor1 = parseFloat(valor1);
+                valor2 = parseFloat(valor2);
+            
+                switch(operacao){
+
+                    case 'soma':
+                        resultado = somar(valor1, valor2);
+                    break;
+                    
+                    case 'subtracao':
+                        resultado = subtrair(valor1, valor2);
+                    break;
+
+                    default:
+                        alert ('Selecione uma operação a ser realizada!!');
+                        document.getElementById("camp1").value  = '';
+                        document.getElementById("camp2").value  = '';
+                    break;
+                }
+
+                if(operacao == ''){
+                    document.getElementById("resultado_span").innerHTML = '';
+                    
+                }else{
+                    document.getElementById("resultado_span").innerHTML = "Resultado: " + resultado;
+                }
+    
+                //validação
+                if(isNaN(valor1) || isNaN(valor2)){
+
+                    alert("Por valor, digite um valor numérico.");
+                    document.getElementById("camp1").value  = '';
+                    document.getElementById("camp2").value  = '';
+                    document.getElementById("resultado_span").innerHTML = '';
+                }
+
+            }
+            //botão limpar
+            document.getElementById("but_limpar").onclick = () => {
+                document.getElementById("camp1").value  = '';
+                document.getElementById("camp2").value  = '';
+                document.getElementById("resultado_span").innerHTML = '';
+                document.getElementById("sel_operacao").value = "";
+            }
+        }
+
+ 
+    </script>
+    
+</body>
+</html>

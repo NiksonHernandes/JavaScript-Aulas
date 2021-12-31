@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trabalhando com jQuery</title>
+    <!-- Usando CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!--
+       Baixando o Arquivo
+    <script src="js/jquery-3.6.0.min.js"></script>
+
+        Baixando o arquivos e renomeando
+    <script type="text/javascript" src="js/jquery.js"></script> -->    
+</head>
+   
+<body>
+    <img src="https://img.freepik.com/fotos-gratis/imagem-aproximada-em-tons-de-cinza-de-uma-aguia-careca-americana-em-um-fundo-escuro_181624-31795.jpg?size=626&ext=jpg" alt="ImagemTeste">
+
+    <script type="text/javascript">//para informar que parte é um text e parte é JS - não é obrigatório
+
+    //Inicialização do JQuery:
+
+    //Esperar carregar os arquivos DOM e dps executar o code;
+
+    $(document).ready(function(){
+        alert("Arquivo DOM carregado!");
+    });
+
+    //Esperar carregar os arquivos HTML/da pagina e dps executar o code:
+
+    $(window).on("load", function(){
+        alert("Arquivos da janela carregados!");
+    });
+    
+    
+    </script>
+    
+</body>
+</html>

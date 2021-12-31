@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 4</title>
+
+    <style>
+
+    </style>
+
+</head>
+<body>
+
+    <h1>Atividade 4</h1>
+
+
+
+    <input id="camp1" type="number" placeholder="Valor 1">
+    <span id='espan'></span>
+
+    <input id="camp2" type="number" placeholder="Valor 2"> 
+    <span id='espan'></span>
+
+    <button id="evento" onclick="clique()">Calcular</button>
+    <br />
+    </br>
+    
+    <label for="oper">Selecione a operação:</label>
+    <select id="operacao" onchange="selecionarElementos()">
+
+        <option value="q">Soma</option>
+        <option value="s">Subtração</option>
+        <option value="3">Multiplicação</option>
+        <option value="3">Divisão</option>
+
+    </select>
+
+
+    <p id="resultado">Seu resultado é:</p>
+
+    <script>
+    //FAÇA UMA CALCULADORA EM QUE O USUÁRIO ESCOLHA A OPERAÇÃO QUE DESEJA REALIZAR; 
+/*
+        let campo1 = document.getElementById('camp1');
+        let campo2 = document.getElementById('camp2');
+        let result = document.getElementById('resultado');
+
+        window.onload = () =>{
+            
+            document.getElementById("evento").onclick = () => {
+
+                /*let opera = document.getElementById('operacao');
+                //result.innerHTML = `opa`   
+
+                let i = 0;
+
+
+                for(i; i < opera.options.length; i++)//i menor que numero de opções no opera, roda loop
+                {
+                    console.log(opera.options[i].text)
+
+            
+                    if((opera.options[i].value) == 0){
+                        result.innerHTML = `soma = ${parseFloat(campo1.value) + parseFloat((campo2.value))}`
+                        
+                        
+                    } 
+                       
+
+                    
+
+                    
+                }
+
+                    for(i; i < opera.options.length; i++)//i menor que numero de opções no opera, roda loop
+                    {
+                    
+                        if((opera.options[i].value) == 1){
+                        result.innerHTML = `subtração = ${parseFloat(campo1.value) - parseFloat((campo2.value))}`
+                       
+                       
+
+                    } 
+
+            
+                   
+                    
+                    }
+               
+                
+                
+                
+
+                
+                
+                
+        
+            } 
+
+            
+
+        }
+*/    
+        function selecionarElementos(){
+                    
+                var select = document.getElementById("operacao").value;
+                console.log(selecionarElementos);
+            }
+
+/*
+        let op = document.getElementById("operacao");
+        
+
+        for(var i = 0; i < (op.options).length; i++){
+            console.log(op[i].value)
+        }
+        console.log(op[3].value)*/
+        
+    </script>
+    
+</body>
+</html>

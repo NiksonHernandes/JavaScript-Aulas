@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos e Função</title>
+
+    <style>
+
+        body{
+            background-color: rgba(118, 160, 238, 0.87);
+        }
+
+        h1{
+            font-family: monospace;
+            font-size: 45px;
+            font-style: italic;
+            text-align: center;
+        }
+
+        p{
+            font-size: 35px;
+        }
+
+        #paragrafo, #paragrafo2{
+            font-size: 20px;
+        }
+
+    </style>
+ 
+</head>
+<body>
+    <h1>Funções e eventos em JavaScript</h1>
+    
+    <!--Evento onclick altera doc HTML:-->
+    <p style="font-size: 25px;">Evento onclick altera doc HTML:</p>
+    <button onclick="document.getElementById('paragrafo').innerHTML = Date()">A HORA É?</button>
+    <p id='paragrafo'>Aparecerá aqui</p>
+
+    <hr>
+
+    <!--Evento onclick muda seu próprio elemento:-->
+    <p style="font-size: 25px;">Evento onclick muda seu próprio elemento:</p>
+    <button onclick="this.innerHTML = Date()">A HORA É?</button>
+
+    <hr>
+
+    <!--Evento onclick para chamar uma função-->
+    <p style="font-size: 25px;">Evento onclick para chamar uma função:</p>
+    <button onclick="clique()">A HORA É?</button>
+
+    <p id="paragrafo2">Aparecerá aqui</p>
+
+    <script>
+
+        document.write("<p>FUNÇÕES</p>")
+        //FUNÇÃO
+
+        //exemplo: 
+        let cidades = ["Monte Alto", "São Paulo", "Santos", "Bauru", "São Carlos"];
+
+        let nomes = ["Paulo", "Miguel", "João"];
+    
+        /*
+        //fazer uma função para repetir isso!!
+        let totalcidades = cidades.lenght;
+        let auxHtml = '<ul>';
+        
+        for(var i = 0; i < totalcidades; i++){
+            auxHtml = auxHtml + '<li>' + cidades[i] + '</li>';
+        }
+    
+        auxHtml = auxHtml + '</ul>';
+        document.write(auxHtml);*/
+
+
+        //como criar uma função (com passagem e retorno):
+        function mostrarElementos(lista){ //lista é o array q vou passar 
+
+            let totalElementos = lista.length;
+            let auxHtml = '<ul>';
+                
+                for(i = 0; i < totalElementos; i++){
+                    auxHtml = auxHtml + '<li>' + lista[i] + '</li>';
+                }
+
+            auxHtml = auxHtml + '</ul>';
+            return auxHtml;
+        }
+
+        //como jogar o array no parametro da função
+       
+        document.write(mostrarElementos(cidades));
+        document.write(mostrarElementos(nomes));
+
+        //EVENTOS:
+        document.write("<p>EVENTOS</p>")
+
+        //Evento onclick para chamar uma função:
+        function clique(){
+            document.getElementById('paragrafo2').innerHTML = Date();
+        }
+
+    </script>
+    
+</body>
+</html>

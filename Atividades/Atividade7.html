@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clique</title>
+    
+    <style>
+        *{margin: 7px; padding: 10px;}
+        input, label{display: block; font-size: 25px; font-family: monospace;}
+        h1, h2{font-size: 35px;}
+    </style>
+
+</head>
+<body>
+    <h1>Atividades 2</h1>
+    <h2>Exemplo teclado click - Atividade 2</h2>
+    <label for="camp1">REGRA: - Pressione a tecla 'h'</label>
+    <input type="text" id="camp1" placeholder="Digite aqui">
+    <span id="txtSpan"></span>
+
+    <script>
+
+        clique = (tecla) =>{
+
+            if(tecla.keyCode != 104)
+            {
+                tecla.preventDefault();
+                return "Você não obedeceu a regra!"
+                
+            }else
+                return "PARABÉNS, você obedeu a regra!!"
+            
+        }
+        
+        window.onload = () =>{
+
+            document.getElementById("camp1").onkeypress = (tecla) =>{
+               alert(clique(tecla));
+            }
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 9 - Seletores DOM</title>
+</head>
+<body>
+
+    <h1>Seletores - exemplo </h1>
+    
+    <input type="text" id="camp_nome" name="camp_nome" class="texto" placeholder="Informe o nome">
+    <br>
+    <input type="text" id="camp_sobrenome" name="camp_sobrenome" class="texto" placeholder="Informe o sobrenome">
+    <br>
+    <button id="bot_cadastrar">Cadastrar</button>
+    
+    <script>
+    
+
+        //conceito de factory: 
+            function criaObjeto(){
+                let objeto = {};
+
+                return objeto;
+            }
+
+            let objetoA = criaObjeto();
+            let objetoB = criaObjeto();
+
+            objetoA.nome = 'Mateus'
+            objetoB.nome = 'Carlos'
+
+            function fabricaPessoas(nome, sobrenome){
+                let pessoa = {};
+                pessoa._nome = nome;
+                pessoa._sobrenome = sobrenome;
+
+                function nomeCompleto(){
+                    return `${pessoa._nome} ${pessoa._sobrenome}.`;
+                }
+
+                pessoa._nomeCompleto = nomeCompleto; 
+                return pessoa;
+            }
+
+            let pessoaA = fabricaPessoas("João", 'Cardoso');
+            let pessoaB = fabricaPessoas('Camila', 'Miashiro');
+
+
+/*
+        window.onload = () => {
+
+    
+            document.getElementById("bot_cadastrar").onclick = () =>{
+
+                //utilizando o querySelector(#) e querySelectors(.)- seleciona de várias formas ao mesmo tempo 
+                //.-> para class /// #-> para id
+
+                campos = document.querySelectorAll(".texto") // -----> para class - varios, plural
+                //camps = documente.querySelector("#camp_nome") ----> para id - único, singular 
+                for(let i=0; i<campos.length; i++){
+                    alert(campos[i].value);
+                }
+
+                //CLASS NAME- acessar varios elementos pelo class
+                /* camp = document.getElementsByClassName('texto');
+                for(let i=0; i<camp.length; i++){
+                    alert(camp[i].value);
+                }*/
+
+                //NAME - lê todos os elementos com o mesmo nome, na tag name:
+                 /*var camps = document.getElementsByName('camp_nome');
+                for(let i=0; i<camps.length; i++){
+                    alert(camps[i].value); //em 'camps[i]' i=posição do elemente, value=seu valor
+                }*/
+
+                //TAG NAME -lê todos os campos input de uma vez:
+                /*var camps = document.getElementsByTagName('input');
+                for(let i=0; i<camps.length; i++){
+                    alert(camps[i].value); 
+                }
+
+
+            }
+
+
+        } 
+*/
+
+
+
+    </script>
+</body>
+</html>

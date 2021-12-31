@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro cliente</title>
+    <link rel="shortcut icon" href="imagens/User-Clients-icon.png" type="image/x-icon">
+
+    <!--Biblioteca jQuery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <!--Framework Bootstrap--> 
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <!--Css exportação-->
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+    <!--HTML-->
+    <header>
+        <img src="imagens/customer-service-1433639_1920.png" alt="imagem" width="12%" height="100%" style="padding: 15px"> 
+        <span id="span">CADASTROS</span>
+    </header>
+    <section>
+        <div class="container"> <!--Cria container-->
+            <h1>Cadastro de clientes</h1>
+                <div class="container"> 
+                    <div class="row"> 
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="nome">Nome:</label>
+                                <input type="text" name="nome" id="nome" class="form-control" placeholder="Seu nome">
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col">
+                                        <label for="endereco">Endereço:</label>
+                                        <input type="text" name="endereco" id="endereco" class="form-control" placeholder="Seu endereço">
+                                    </div>
+                    
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label for="numero">Número:</label>
+                                            <input type="text" name="numero" id="numero" class="form-control" placeholder="Seu número">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="cpf">CPF:</label>
+                                <input type="text" name="cpf" id="cpf" class="form-control" placeholder="Seu CPF">
+                            </div>
+                            <div class="form-group">
+                                <label for="telfone">Telefone:</label>
+                                <input type="text" name="telefone" id="telefone" class="form-control" placeholder="Seu telefone">
+                            </div>
+                            <div class="form-group">
+                                <button type="button" id="btnSalvar" class="btn btn-dark">Salvar</button>
+                            </div>                          
+                        </div>
+                        
+                        <div class='col-md-8'>
+                            <br>
+                            <table  class="table table-striped">
+                                <thead class="table-secondary"><!--colunas do título-->
+                                    <tr>
+                                        <th scope="col">Nome</th>
+                                        <th scope="col">Endereço</th>
+                                        <th scope="col">CPF</th>
+                                        <th scope="col">Telefone</th>
+                                        <th scope="col">Alterar</th>
+                                        <th scope="col">Deletar</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="corpoTabela"> 
+
+                                </tbody>
+                            </table>
+                        </div> 
+                    </div>
+
+                    <!--CONFIG AJAX-->
+                    <div class="row">
+                        <div class="col-md-1">
+                            <button type="button" id="btnAjax" class="btn btn-success" >AJAX</button>
+                        </div>
+                        
+                        <div class="col-md-11">
+                            <div id="retornoAjax"></div>
+                        </div>
+ 
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <button type="button" id="btnJson" class="btn btn-success" >JSON</button>
+                        </div>
+                    </div>
+                    
+                </div>
+        </div>
+    </section>
+    
+    <footer >
+     
+        <div id="h2Footer">
+            <h2>Como falar comigo?</h2>
+        </div>
+   
+        <ul >
+            <li>
+                <img src="imagens/DESAFIO-REDES-SOCIAIS-icone-facebook.png" alt="Icone facebook" title="icone facebook">
+                <a href="https://www.facebook.com/nikson.hernandes14/" target="_blank" rel="external" title="https://www.facebook.com/nikson.hernandes14/" class="ancora">\niksonhernandes</a> - Me acompanhe lá no Facebook.
+            </li>
+            <li>
+                <img src="imagens/DESAFIO-REDES-SOCAIS-icone-instagram.png" alt="Icone instagram" title="icone instagram">
+                <a href="https://www.instagram.com/nik_hernandes/" target="_blank" rel="external" title="
+                https://www.instagram.com/nik_hernandes/" class="ancora">\nik_hernandes</a> - Me siga lá no Instagram.
+            </li>
+            <li>
+                <img src="imagens/DESAFIO-REDES-SOCIAIS-icone-github.png" alt="Icone git" title="icone github">
+                <a href="https://github.com/NiksonHernandes" target="_blank" rel="external" title="https://github.com/NiksonHernandes" class="ancora">\niksonhernandes</a> - Acesse meu repositório público no GitHub.
+            </li>
+            <li>
+                <img src="imagens/DESAFIO-REDES-SOCIAIS-icone-linkedin.png" alt="Icone linkedin" title="icone linkedin">
+                <a href="https://www.linkedin.com/in/nikson-hernandes-55492b207/" target="_blank" rel="external" title="https://www.linkedin.com/in/nikson-hernandes-55492b207/" class="ancora">\nikson-hernandes</a> - Me siga no Linkedin.
+            </li>
+        </ul> 
+    </footer> 
+
+    <!--Javascript exportação-->
+    <script src="script.js"></script>
+    
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade 9</title>
+</head>
+<body>
+    <script>
+        /*medir a velocidade: 
+        Velocidade máxima de até 70km/h;
+        A cada 5km acima do limite, tu ganha 1 ponto na carteira;
+        Usar a função Math.Floor() para arredondar
+        Se for maior do que 12, você tem a carteira suspensa*/
+
+        velocidadeAtual(75);
+
+        function velocidadeAtual(quilometros){
+            if(quilometros <= 70){
+                console.log("OK");
+
+            }else{
+
+                let aux = quilometros - 70;
+                console.log(`Você está a: ${aux} acima do limite`);
+                
+                console.log(`Você tomou ${aux / 5} pontos na carteira (Não arredondado)`);
+
+                console.log(`Você tomou ${Math.floor(aux / 5)} pontos na carteira (Arredondado)`);
+
+                if(Math.floor(aux / 5) > 12){
+                    console.log("Careira suspensa!");
+                }
+
+            }
+        }
+
+
+    </script>
+</body>
+</html>

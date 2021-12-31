@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encontre a igualdade</title>
+</head>
+<body>
+    <script>
+        //Criar dois objetos endereço e verificar se os dois são iguais 
+        function Endereco(rua, cidade, cep){
+            this._rua = rua,
+            this._cidade = cidade,
+            this._cep = cep
+        };
+
+        const end1 = new Endereco('a', 'b', 'c');
+        const end2 = new Endereco('a', 'b', 'c');
+
+        function iguais(end1, end2){
+            //compara se as propriedades são iguais
+            return end1._rua === end2._rua && end1._cidade === end2._cidade && end1._cep === end2._cep
+            //retorna true ou false
+        }
+
+        console.log(iguais(end1, end2))
+
+        function enderecoMemoriaIguais(end1, end2){
+            //compara de a referencia do objeto aponta para o mesmo local na memoria 
+            //basta comparar ambos os objetos
+            return end1 === end2;
+        }
+
+        console.log(enderecoMemoriaIguais(end1, end2))
+
+
+
+    </script>
+</body>
+</html>

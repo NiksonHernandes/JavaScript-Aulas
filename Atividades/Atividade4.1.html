@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+
+    <style>
+
+        body{
+            background-color: #000000c4;
+        }
+
+        header{
+            text-align: center;
+            font-size: 35px;
+            font-family: monospace;
+            color: white;
+            text-shadow: black 0.1em 0.1em 0.2em;
+        }
+
+        section{
+            background-color: #00000060;
+            border: 2px solid rgb(255, 255, 255);
+            border-radius: 16px;
+            padding: 25px 30px 25px 100px; /*top, rigth, bottom, left */
+            margin-left: 440px;
+            margin-right: 440px;
+            margin-top: -0px;
+            margin-bottom: 20px;
+        }
+
+        .espan{
+            font-family: monospace;
+            font-size: 20px;
+            color: white;
+        }
+        
+        .campo{
+            border-radius: 7px;
+            width: 200px;
+            font-size: 20px;
+        }
+
+        #resultado_div{
+
+            font-size: 24px;
+            color: white;
+        }
+
+        #evento_calcular{
+            color: rgb(0, 0, 0);
+            font-family: monospace;
+            font-size: 20px;
+            border-radius: 5px;     
+        }
+
+        #evento_limpar{
+            color: rgb(0, 0, 0);
+            font-family: monospace;
+            font-size: 20px;
+            border-radius: 5px;   
+        }
+
+        .botao #evento_calcular:hover {
+            color: rgb(7, 209, 7);
+            font-size: 23px;
+        }
+
+        .botao #evento_limpar:hover {
+            color: rgb(236, 1, 1);
+            font-size: 23px;
+        }
+        
+        #rodape{
+            margin-left: 440px;
+            color: white;
+            font-size: 12px;
+        }
+
+    </style>
+
+</head>
+<body>
+    
+    <header>
+        <h1>Calculadora</h1>
+    </header></br>
+    
+    <section>
+        <div id="camp1_div">      
+            <span id='espan1' class="espan"></span><br/>
+            <input id="camp1" type="number" class="campo" placeholder="Valor 1">
+        
+        </div>
+        
+        <div id="camp2_div">
+            <span id='espan2' class="espan" ></span><br/>
+            <input id="camp2" type="number" class="campo" placeholder="Valor 2"> 
+
+        </div>
+            
+        <div id="camp3_div" >
+            </br><input id="camp3" type="text" class="campo" placeholder="Operação"> </br>
+            <span id='espan_txt' class="espan"  style="font-size: 19px;"></span>
+
+        </div>
+    
+        <div id="resultado_div">
+            <p id="resul"></p>
+
+        </div>
+        
+        <div id="calcular" class="botao">
+            <button id="evento_calcular" >Calcular</button>
+            <button id="evento_limpar" >Limpar</button>
+
+        </div>
+    </section>
+
+    <footer id="rodape">
+        <p>&copy;NiksonHernandes</p>
+    </footer>
+
+    <script>
+
+    //FAÇA UMA CALCULADORA EM QUE O USUÁRIO ESCOLHA A OPERAÇÃO QUE DESEJA REALIZAR E QUANTAS VEZES ELE QUISER; 
+
+    //confirm("SEJA BEM-VINDO(A)\nEstá é a calculado 1.0 do Sr. Nikson :3")
+
+    //entrada do tipo de operação
+    let operacao = document.getElementById("camp3")
+    
+    //eventos
+    window.onload = () =>{
+
+        document.getElementById("evento_calcular").onclick =() =>{
+
+            if((operacao.value)== 'soma' || (operacao.value)== 'Soma' || (operacao.value)== 'SOMA')
+            {  
+                oper(1);
+
+            }else if((operacao.value) == 'subtracao' || (operacao.value) == "subtração" || (operacao.value) == "Subtração" || (operacao.value) == "Subtracao"){
+                oper(2);
+
+            }else if((operacao.value) == 'multiplicacao' || (operacao.value) == "multiplicação" || (operacao.value) == "Multiplicacao" || (operacao.value) == "Multiplicação"){
+                oper(3);
+
+            }else if((operacao.value)== 'divisao' || (operacao.value) == "divisão" || (operacao.value) == "Divisao" ||(operacao.value)== "Divisão"){
+                oper(4);
+
+            }else{
+                alert(`Informa uma operação válida.\nTente novamente!`);
+                oper(5);
+
+            }
+        } 
+
+        //botão de limpar os campos
+        document.getElementById("evento_limpar").onclick = () =>{
+
+            document.getElementById("camp1").value  = "";
+            document.getElementById("camp2").value = "";
+            document.getElementById("camp3").value = "";
+            document.getElementById("resul").innerHTML = "" ;
+        }
+
+        //onfocus dos campos: 
+        document.getElementById("camp1").onfocus = () =>{
+            document.getElementById('espan1').innerHTML = 'Informe o valor!';
+        }
+        document.getElementById('camp1').onblur= () =>{//onblur - qnd vc sai do campo ele limpa a mensagem de onfocus
+            document.getElementById('espan1').innerHTML = '';
+        }
+
+        document.getElementById("camp2").onfocus = () =>{
+            document.getElementById('espan2').innerHTML = 'Informe o valor!';
+        }
+        document.getElementById('camp2').onblur = () =>{
+            document.getElementById('espan2').innerHTML = '';
+        }
+
+        document.getElementById("camp3").onmouseover = () =>{
+            document.getElementById('espan_txt').innerHTML = 'Informe uma operação! <br> (Soma, Subtração, <br> Multiplicação ou Divisão)';
+        }
+        document.getElementById('camp3').onmouseout = () =>{
+            document.getElementById('espan_txt').innerHTML = '';
+        }    
+    }
+
+    //função para calcular 
+    function oper(x)
+    {
+        //entrada dos valores  do campo 1 e campo 2      
+        let valor1 = document.getElementById("camp1");
+        let valor2 = document.getElementById("camp2");
+        
+        if(x == 1){
+
+            let x = parseFloat((valor1.value)) + parseFloat((valor2.value));      
+            document.getElementById("resul").innerHTML = `A soma é: ${x}`
+
+        }else if( x == 2){
+
+            let x = parseFloat((valor1.value)) - parseFloat((valor2.value));           
+            document.getElementById("resul").innerHTML = `A subtração é: ${x}`
+
+        }else if(x == 3){
+
+            let x = parseFloat((valor1.value)) * parseFloat((valor2.value));          
+            document.getElementById("resul").innerHTML = `A multiplicação é: ${x}`
+
+        }else if(x == 4){
+
+            let x = parseFloat((valor1.value)) / parseFloat((valor2.value));            
+            document.getElementById("resul").innerHTML = `<p>A divisão é: ${x}</p>`
+
+        }else {//reseta os campos 
+
+            document.getElementById("camp1").value  = " ";
+            document.getElementById("camp2").value = "";
+            document.getElementById("camp3").value = "";
+            document.getElementById("resul").innerHTML = "" ;
+        }
+    }
+    </script>
+</body>
+</html>

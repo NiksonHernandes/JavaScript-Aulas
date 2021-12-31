@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista</title>
+    
+    <style>
+        *{
+            margin: 7px;
+            padding: 10px;
+        } 
+        
+        h1 {
+            font-size: 50px;
+            text-shadow: 2px 2px  rgb(27, 39, 199);
+        }
+
+        input, span{
+            display:block;
+            font-size: 20px;
+            font-family: monospace;
+        }
+        
+        ol, li{
+            margin-left: 35px;
+            font-size: 25px;
+            font-family: monospace;
+            font-weight: bold;
+        }
+
+        button{
+            width: 255px;
+            font-size: 20px;
+            border-radius: 10px;
+        }
+
+        button:hover{
+            width: 256px;
+            font-size: 21px;
+            background-color: rgba(109, 165, 165, 0.295);
+            transition: 0.2s;
+        }
+       
+    </style>
+    
+</head>
+<body>
+
+    <h1>Lista de itens:</h1>
+    <input type="item" name="item" id="item" placeholder="Item aqui">
+    <input type="codigo" name="codigo" id="cod" placeholder="Codigo do item">
+    
+    <button id="botao">Adicionar</button>
+    <button onclick="clique()">Lista Completa</button>
+    <span id="teste">Lista aqui: </span>
+    <ol id="lista_html"> </ol>
+
+    <script>
+
+        function Cadastro (item, codigo) { //constructor function
+            this._item = item,
+            this._codigo = codigo
+        }
+    
+        function adicionaArray(lista, objeto){
+            //armazena.push(novoCadastro)
+            lista.push(objeto);
+        }
+
+        function exibiLista(lista){
+            let auxhtml = "";
+            
+            for(let indice in lista){
+                auxhtml += '<li>' + 'Item: ' + lista[indice]._item + '<br>'  +  'Codigo: ' + lista[indice]._codigo + ';'+ '</li>'; 
+            }
+            return auxhtml;
+
+        }
+
+        function clique() {
+            alert('hi')
+        }
+
+        var armazena = [];
+
+        window.onload = () =>{
+
+            document.getElementById("botao").onclick = () =>{
+                let item = document.getElementById("item").value;
+                let codigo = document.getElementById("cod").value;
+                if(item != '' && codigo != ''){
+
+                    const novoCadastro = new Cadastro(item, codigo);
+                    adicionaArray(armazena, novoCadastro);
+                    
+                    document.getElementById('lista_html').innerHTML =  exibiLista(armazena);
+
+                    console.log(exibiLista(armazena));
+
+                    document.getElementById("item").value = '';
+                    document.getElementById("cod").value = '';
+       
+                }else{
+                    alert("Insira um item!");
+                }
+               
+            }
+            
+           
+
+        }
+
+
+    </script>
+    
+</body>
+</html>

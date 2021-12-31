@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seletores</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+</head>
+<body>
+
+    <h1>Título teste</h1>
+
+    <a href="#">Link 1</a> <!-- # -> cria um link nulo -->
+    <a href="#" class="link2">Link 2</a>
+    <a href="#" id="link3">Link 3</a>
+
+    <script>
+        
+        $(document).ready(function(){
+            //começa sumido, demora um delay de 1seg e apararece devagar, 'slow':
+            /*$('h1').css("color", "blue");
+            $('h1').hide(); //oculta
+            $('h1').delay('1000');// tempo para o próximo evento acontecer
+            $('h1').fadeIn("slow");
+            $('h1').text('Titulo modificado'); // modifica o h1
+            $('h1').append(" e adicionado"); // acrescenta algo novo no h1*/
+            
+            //encadear todos os elementos acima: 
+            //$('h1').css("color", "blue").hide().delay('1000').fadeIn('slow').text('Titulo modificado').append(" e adicionado");  
+        
+            //encadeiamento em bloco:
+            /*
+            $('h1')
+                .css("color", "red")
+                .hide().delay('1000')
+                .fadeIn('slow')
+                .text('Titulo modificado')
+                .append(" e adicionado")
+                //evento de click:
+                .click(function(){
+                    $('body').css("background-color", "yellow")
+                });*/
+
+            //mais de um atributo dentro da mesma função: 
+            $('a').css({block:'red', display:'block'});
+            $('.link2').css("color",'green');
+            $('#link3').css("color", 'black');
+            $('*').css("padding", '10');
+            $('h1, #link3').css("border-bottom", "solid 3px black");
+           
+        })
+
+    </script>
+</body>
+</html>

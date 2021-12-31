@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projeto</title>
+    <!--Biblioteca jQuery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <!--Framework Bootstrap--> 
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <style> 
+        header{
+            /*background: url('IMG-Projeto.jpg');*/
+            background-color:#334f4fa9 ;
+            height: 150px ;
+            margin-bottom: 25px;
+        }
+
+        body{
+            background-color: #8FCFCD ;   
+            padding: 0 px;
+        }
+       
+        footer{
+            text-align: center;
+            background-color:#334f4fa9;
+            height: 60px;
+            margin-top: 25px;
+            padding: 15px;  
+        }
+        .container{
+            background-color: #53818091;
+            border-radius: 10px;
+            box-shadow: 5px 5px 5px #53818060 ;
+            padding: 25px;
+        }
+        #seleciona_lista{
+            width: 70%;
+            
+        }
+
+    </style>
+</head>
+<body>
+
+    <!--HTML-->
+    <header>
+        <img src="IMG-Projeto.jpg" alt="imagem" width="15%" height="100%" style="padding: 15px">
+    </header>
+    <section>
+        <div class="container"> <!--Cria container-->
+            <h1>Cadastro de clientes</h1>
+                <div class="container"> 
+                    <div class="row"> 
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="nome">Nome:</label>
+                                <input type="text" name="nome" id="nome" class="form-control" placeholder="Seu nome">
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col">
+                                        <label for="endereco">Endereço:</label>
+                                        <input type="text" name="endereco" id="endereco" class="form-control" placeholder="Seu endereço">
+                                    </div>
+                    
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label for="numero">Número:</label>
+                                            <input type="text" name="numero" id="numero" class="form-control" placeholder="Seu número">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="cpf">CPF:</label>
+                                <input type="text" name="cpf" id="cpf" class="form-control" placeholder="Seu CPF">
+                            </div>
+                            <div class="form-group">
+                                <label for="telfone">Telefone:</label>
+                                <input type="text" name="telefone" id="telefone" class="form-control" placeholder="Seu telefone">
+                            </div>
+                            <div class="form-group">
+                                <button type="button" id="btnSalvar" class="btn btn-dark">Salvar</button>
+                               <!-- <button type="button" id="limpar" class="btn btn-dark">Limpar tudo</button> -->
+                            </div>                          
+                        </div>
+                        
+                        <div class='col-md-8'>
+                            <br>
+                            <table  class="table table-striped">
+                                <thead class="table-secondary"><!--colunas do título-->
+                                    <tr>
+                                        <th scope="col">Nome</th>
+                                        <th scope="col">Endereço</th>
+                                        <th scope="col">CPF</th>
+                                        <th scope="col">Telefone</th>
+                                        <th scope="col">Alterar</th>
+                                        <th scope="col">Deletar</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="corpoTabela"> 
+
+                                </tbody>
+                            </table>
+                        </div> 
+                    </div>
+                    <!--CONFIG AJAX-->
+                    <div class="row">
+                        <div class="col-md-3">
+                            <button type="button" id="btnAjax" class="btn btn-success" >AJAX</button>
+                        </div>
+                        <div class="col-md-3">
+                            <button type="button" id="btnJson" class="btn btn-success" >JSON</button>
+                        </div>
+                        <div class="col-md-6">
+                            <div id="retornoAjax">
+                                
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+        </div>
+    </section>
+    <footer>
+        Rodapé 
+    </footer>
+    
+    <!--Javascript-->
+    <script>
+
+        class Cliente {
+            constructor(nome, endereco, cpf, telefone){
+                this._nome = nome;
+                this._endereco = endereco;
+                this._cpf = cpf;
+                this._telefone = telefone;
+            }
+            /*Infor() {
+                return `${this._nome}, ${this._endereco}, ${this._cpf}, ${this._telefone}`; 
+                
+            }*/
+        }
+
+        var armazena = [];
+        var auxPosicao = '';
+
+        //função para adicionar o elemento no array/lista
+        function cadastrar(objeto, lista){
+           lista.push(objeto);
+        }
+
+        //função que altera o cliente
+        function altera(objeto, lista, posicao){
+            lista[posicao] = objeto;   
+        }
+
+        //função excluir
+        function excluir(lista, posicao){
+            lista.splice(posicao, 1);//posição e o quanto, a partir daquela posição, você quer excluir
+        }
+
+        //função para montar a estrutura da tabela
+        function listarTabela(lista){
+            let auxHtml = ' ';
+            for (let  i=0;  i < lista.length; i++){
+                auxHtml += '<tr>' + '<td>' + lista[i]._nome + '</td>' 
+                    + '<td>' + lista[i]._endereco + '</td>' 
+                    + '<td>' + lista[i]._cpf + '</td>' 
+                    + '<td>' + lista[i]._telefone + '</td>' 
+                    + '<td>' + 
+                    '<button class="btn btn-warning" rel="'+ i +'" >A</button>' + 
+                    '</td>' + '<td>' + 
+                    '<button class="btn btn-danger" rel="'+ i +'">D</button> ' + '</td>' + 
+                    '</tr>'; //rel -> associa o botão com o posição no array que vc quer alterar.
+            }
+            return auxHtml;
+        }
+
+        $(document).ready(() => {
+            $("#btnSalvar").click(function(){
+                
+                let nome = $('#nome').val(); //let nome = document.elementbyid('nome').value
+                let endereco = $("#endereco").val();
+                let cpf = $("#cpf").val();
+                let telefone = $("#telefone").val();
+
+                if(nome != '' && endereco != '' && cpf != '' && telefone != ''){
+
+                    let adicionaCliente = new Cliente(nome, endereco, cpf, telefone);
+                    if(auxPosicao == ''){
+                        cadastrar(adicionaCliente, armazena);//armazena.push(adicionaCliente)
+                    }else{
+                        altera(adicionaCliente, armazena, auxPosicao);
+                        auxPosicao = '';
+                    }
+                    $("#corpoTabela").html(listarTabela(armazena));//document.getelement.... innetHtml =...
+                    $('input').val('');
+
+                }else{
+                    alert("Todos os dados são necessários!")
+                }
+            })
+            $("#corpoTabela").on("click", '.btn-warning', function (){//rgistrando no corpoTabela, pq o botão Alterar ainda n existe, vms registrar só pra rodar, click, 'filtro -> pega só o q esta no filto' -> toda vez q clicar na class q eu tem btn-warning vai executar a função
+                let posicaoAtual = $(this).attr('rel'); // this -> se refere ao objeto que foi clicado(ele mesmo). attr -> lê o valor do atributo. 
+                //alert(posicaoAtual);
+                auxPosicao = posicaoAtual
+                $("#nome").val(armazena[auxPosicao ]._nome);
+                $("#endereco").val(armazena[auxPosicao ]._endereco);
+                $("#cpf").val(armazena[auxPosicao ]._cpf);
+                $("#telefone").val(armazena[auxPosicao ]._telefone);
+            })
+
+            $("#corpoTabela").on("click", '.btn-danger', function(){
+
+                let posicaoExcluir = $(this).attr('rel');
+                //alert(posicaoExcluir);
+                if(confirm('Deseja excluir permanentemente?')){
+                    excluir(armazena, posicaoExcluir);
+                    $("#corpoTabela").html(listarTabela(armazena));
+                }
+            })
+
+
+
+
+            //AJAX
+            /*$("#btnAjax").click(()=>{
+                $.ajax({
+                    url: "http://date.jsontest.com/", //endereço do servidor que vai comunicar no site: http://www.jsontest.com/
+                    //context: document.body
+                    method: 'GET'
+                }).done(function(resposta) { //done - qnd estiver pronto
+                    $('#retornoAjax').html(resposta.time);
+                
+                });
+            })*/
+
+            //sem jQuery
+            document.getElementById("btnAjax").onclick = () =>{
+                var xhr =  new XMLHttpRequest();
+                var resposta;
+
+                xhr.responseType = "json"
+                xhr.onreadystatechange = function(){
+                    if(xhr.readyState == 4 && xhr.status == 200){
+                        resposta = xhr.response
+
+                        document.getElementById('retornoAjax').innerHTML = 'Data: ' + resposta.date + '<br> ' + 'Hora: ' + resposta.time;
+                        
+                    }
+                }
+
+                xhr.open("GET", 'http://date.jsontest.com/');
+                xhr.send();
+            }
+
+
+            $("#btnJson").click(() =>{
+                let jsonclientes = JSON.stringify(armazena); //converte objeto para JSON
+                console.log(jsonclientes);
+                alert("Lista de clientes exportadas!");
+
+                //let objeto = JSON.parse('{...}'); //converte o JSON para objeto 
+                //console.log(objeto);
+
+
+
+                var xhr = new XMLHttpRequest;
+                //criar um objeto do tipo json que será enviado para o servidor/ vc manda o mesmo tipo de documento que receber
+             
+                var resposta;
+                    
+                xhr.onreadystatechange  = ()=>{
+                    if(xhr.readyState ==4){
+                        resposta = xhr.response
+                        console.log(resposta); //retorna um ID, seria o ID da tabela que foi inserida a informação que eu enviei
+                        alert("Enviado para o servidor!")
+                    }
+
+                }
+
+                xhr.open('POST','http://jsonplaceholder.typicode.com/posts' )
+                xhr.send(jsonclientes); //manda para o servidor o 'documento'
+
+            })
+
+
+            //LIMPA TUDO 
+            /*$("#limpar").click( function(){
+                for(let x=0; x < armazena.length; x++){
+                    armazena.splice(x);
+                }
+                $("td").remove();
+                alert("Limpo!");
+            })*/
+        })
+
+              
+
+
+
+
+    </script>
+
+</body>
+</html>

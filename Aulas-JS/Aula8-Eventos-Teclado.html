@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula8</title>
+
+    <style>
+        *{
+            margin: 8px;
+            padding: 10px;
+        }
+
+        h1, p{
+            font-size: 40px;
+            font-family: monospace;
+        }
+
+        input, button, span{
+            display: block;
+            font-size: 25px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1>Eventos com teclado e objetos:</h1>
+    <p>Comparador de preços:</p>
+
+    <input type="text" id="txtEtanol" placeholder="Valor do Etanol">
+    <input type="text" id="txtGasolina" placeholder="Valor da Gasolina">
+    <button id="btnCalcular">Calcular</button>
+    <span id="resul"></span>
+
+    <script>
+
+        class Calculo {
+            constructor(valorEtanol, valorGasolina){
+                this._valorEtanol = valorEtanol; 
+                this._valorGasolina = valorGasolina;    
+            } 
+
+            //funções ou métodos dentro da classe/objeto;
+            calcular(){
+                return this._valorEtanol / this._valorGasolina;
+            }
+        }
+
+
+        //função para verfificar tecla
+        function verificarTeclado(tecla){
+        /* verificarTeclado = (tecla) => {} */
+
+            //mas qual tecla foi pressionada? qq tecla vai disparar, vc tem q dizer qual, coloca no parametro
+            //alert(tecla.keyCode); //descobrir o códido da tecla ou ver na tabela ASCII
+            if(tecla.keyCode < 46 || tecla.keyCode > 57 || tecla.keyCode == 47)//deixa adicionar somente números e o ponto
+            {
+                tecla.preventDefault(); //cancela ação padrão do evento - cancela a colocação da tecla
+                alert("Digite um valor numérico!!");
+            }
+
+        }  
+
+        window.onload = () => {
+
+            //acessar o campo do etanol com o teclado
+            document.getElementById("txtEtanol").onkeypress/*ou onkeydown*/ = (tecla) => {
+            /*document.getElementById("txtEtanol").onkeydown = function (tecla){} */
+                verificarTeclado(tecla);  
+            }
+            document.getElementById("txtGasolina").onkeypress = (tecla) => {
+                verificarTeclado(tecla);  
+            }
+
+            document.getElementById("btnCalcular").onclick = () => {
+            
+                let valorEtanol = document.getElementById("txtEtanol").value;
+                valorEtanol = parseFloat(valorEtanol);
+                let valorGasolina = document.getElementById("txtGasolina").value;
+                valorGasolina = parseFloat(valorGasolina);
+    
+                let calculo_escopo = new Calculo(valorEtanol, valorGasolina);//passa os valores para a classe
+                let resultado = calculo_escopo.calcular();//chama o método calcular 
+
+                document.getElementById("resul").innerHTML = resultado;
+            }   
+        }
+    </script>
+
+</body>
+</html>

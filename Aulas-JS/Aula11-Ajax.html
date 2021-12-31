@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajax</title>
+
+    <!--Biblioteca jQuery CDN-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+</head>
+<body>
+    <!--Ajax - JavaScript assíncrono + XML - Assincrono JS and XML, Json, HTML, texto, usa o XHR(XML HTTP Request) para fazer a requisição pro servidor. 
+        XML -> Linguagem de marcação - enviar/transferir dados entre front e back 
+        Ajax é um termo que representa o uso de um grupo de técnologias de desenvolvimento para Web
+        Ajax é o uso metodológico de tecnologias como Javascript e XML, providas por navegadores, para tornar páginas Web mais interativas com o usuário 
+        É uma forma de conectar o front com o back sem precisar recarregar a página 
+    -->
+    <h1>Teste Ajax com Json</h1>
+
+    <button type="button" id="btnAjax" class="btn btn-success" >AJAX</button>
+
+    <script>
+        window.onload = () =>{
+            
+            //MÉTODO GET:
+            
+            /*var teste = new XMLHttpRequest();//criando a instancia de requisição
+            var documento;
+             
+
+            //teste.responseType = "json" //tipo de resposta, vai ser em json
+
+            teste.onreadystatechange = function(){ //função que chama o evento quando o readyState for alterado
+                if(teste.readyState == 4 && teste.status == 200){
+
+                    documento = teste.response; //armazena resposta do servidor em um documento
+
+                    // documento = JSON.parse(documento); -> diz que a minha resposta vai ser em Json, vai retornar um typeof object, outra forma lá em cima
+
+                    alert(documento);//exibe o documento
+                    console.log(documento);
+                   
+                }
+            }
+
+            teste.open("GET", "http://jsonplaceholder.typicode.com/posts/1");//passa o método e o URL
+
+            teste.send();//manda a requisição/envia as configurações para o servidor*/ 
+
+            //MÉTODO POST
+            var xhr = new XMLHttpRequest;
+            //criar um objeto do tipo json que será enviado para o servidor/ vc manda o mesmo tipo de documento que receber
+            var informacoes = {
+                    "userId": 25,
+                    "id": 1,
+                    "title": "TESTE DE POST",
+                    "body": "HOJE FAREI UM TESTE SOBRE O POST"
+                    }
+            var resposta;
+                
+            xhr.onreadystatechange  = ()=>{
+                if(xhr.readyState ==4){
+                    resposta = xhr.response
+                    console.log(resposta); //retorna um ID, seria o ID da tabela que foi inserida a informação que eu enviei
+                }
+    
+            }
+
+            xhr.open('POST','http://jsonplaceholder.typicode.com/posts' )
+            xhr.send(informacoes); //manda para o servidor o 'documento'
+
+
+            /*document.getElementById("btnAjax").onclick  = () =>{
+                var teste;
+
+                if(window.XMLHttpRequest){
+                    teste = new XMLHttpRequest;
+                }else{
+                    alert("falha")
+                }
+
+                teste.onreadystatechange = function(){
+                    if(teste.readyState == 4 && teste.status == 200){
+                        alert(teste.responseText)
+                        console.log(teste.responseText)
+                    }
+                }
+
+                teste.open("GET", 'http://code.jsontest.com/', true);
+                teste.send();
+
+
+            }*/
+            
+
+        }
+
+    </script>
+
+</body>
+</html>

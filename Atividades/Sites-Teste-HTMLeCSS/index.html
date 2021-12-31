@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página principal</title>
+    <link rel="shortcut icon" href="Imagens/FAVICON-PADRAO-NIKSON.ico" type="image/x-icon">
+
+    <style>
+        *{margin: 0; padding: 0;}
+
+        .container-principal{
+
+            font-family: 'verdana';
+            color: #777;
+        }
+
+        /*definir as propriedade do cabeçalho*/
+        header{
+            width: 100%;/*largura*/
+            height: 125px;/*altura*/
+            background-color: rgba(255, 255, 255, 0);
+            position: relative;
+            top: 0;
+        }
+
+        .logo{
+            position: absolute;
+            width: 300px;
+            height: auto;/*se auto proporciona com a largura da div pai, o header*/
+        }
+
+        .logo img{
+            width: 90%; /*90% de 300px, que corresponde a largura da vid logo*/
+            margin-left: 10%;
+
+        }
+
+        nav{
+            position: absolute;
+            right: 30px;
+            bottom: 0px;
+        }
+
+        nav ul li{
+            float: left;
+            color: #777;
+            width: auto;
+            margin: 20px;
+            font-size: 25px;
+            font-family: monospace;
+            list-style: none;
+        }
+        
+        nav ul li a{
+            text-decoration: none; /*tirar a decoração*/
+            color: #bbb;
+        }
+
+        nav ul li a:hover {
+            color: #b13030;
+        }
+
+        /*tamanho da imagem principal*/
+        #banner{
+            width: 100%;  
+        }
+
+        #banner img{
+            width: 100%;
+            margin-bottom: 0px;
+        }
+
+        /*Estilos do pop-up*/
+        
+        .modalDialog{
+            position: fixed;/*elemento fica fixo na posição determinada pelas coordenadas abaixo*/
+            font-family: 'verdana';
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background: rgba(209, 112, 112, 0.8);
+            z-index: 999;
+            opacity: 0;
+            -webkit-transition: opacity 400ms ease-in;
+            -moz-transition: opacity 400ms ease-in;
+            transition: opacity 400ms ease-in;
+            pointer-events: none;
+            display: none;
+
+        }
+
+        .modalDialog:target{
+            display: block;/*informando que ao navegador que a div ficará visível*/
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .modalDialog div{
+            width: 50%;
+        }
+
+
+
+    </style>
+
+</head>
+<body>
+    <div class="container-principal"><!--container DIV-->
+
+        <header><!--Cabeçalho-->
+            <div class="logo"> <!--contairer para o logo-->
+                <a href="index.html"> 
+                    <img src="Imagens/LOGO-SITE.jpg" alt="logo site" style="height: 122px; width: 200px;">
+                </a>
+            </div> 
+
+            <nav><!--manter todos os links dentro da nav-->
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="clientes.html">Clientes</a></li>
+                    <li><a href="Mercadorias.html">Mercadorias</a></li>
+                    <li><a href="contato.html">Contatos</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <section id="banner">
+            <img src="Imagens/Imagem-fundo.jpg" alt="imagem de fundo">
+        </section>
+
+        <div id="openModal" class="modalDialog">
+            <div>
+                <a href="#close" class="close">X</a>
+                <h1>Amendoim</h1>
+                <p>EU gosto de amendoim</p>
+            </div>
+        </div>
+
+        <div id="openModal1" class="modalDialog">
+            <div>
+                <a href="#close" title="close" class="close">X</a>
+                <h1>Banana</h1>
+                <p>EU gosto de banana</p>
+            </div>
+        </div>
+
+        <div id="openModal2" class="modalDialog">
+            <div>
+                <a href="#close" title="close" class="close">X</a>
+                <h1>Abacate</h1>
+                <p>EU gosto de abacate</p>
+            </div>
+        </div>
+
+    </div>
+    
+</body>
+</html>

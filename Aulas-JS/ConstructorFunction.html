@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Constructor Function</title>
+</head>
+<body>
+    <script>
+        //função de construtor
+
+        //exemplo: 
+        function novoCelular(marca, tamanhoTela, bateria){
+            return{ 
+                marca,
+                tamanhoTela,
+                bateria,
+                ligar(){
+                    return `Este celular é da marca: ${this.marca}`
+                }
+            }
+        }
+    
+        //Pascal case: UmDoiTresQuatro
+        //camelCase: umDoisTresQuatro
+
+        //constructor function
+        function Celular(marca, tamanhoTela, bateria){
+            this._marca = marca,
+            this._tamanhoTela = tamanhoTela,
+            this._bateria = bateria,
+            this.ligar1 = () => {
+                return `Este celular é da marca: ${this._marca}`
+            },
+            this.comentarios = [
+                
+            ]
+        }
+
+        const NovoCelular = new Celular('Positivo', 124, 3500);
+        console.log(NovoCelular);
+        console.log(NovoCelular.ligar1())
+        
+
+
+
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade 10</title>
+</head>
+<body>
+    <script>
+        //crie um método para ler propriedades de um objeto e exibir somente as propriedades do tipo string que estão nesse objeto
+        
+        const filme = {
+            nome: 'Jao e pé de abacate',
+            atores: 125,
+            diretor: "Paulo soares",
+            personagem: "Joao e o feijao",
+            ano: 2012
+
+        }
+
+        propriedadesObj(filme);
+        function propriedadesObj(obj){
+
+            for(let chave in obj){
+               
+                if(typeof(obj[chave]) == 'string'){
+                    console.log(obj[chave]);
+                }
+            }
+
+            console.log("-----------//----------")
+
+            for(let chave in obj){
+    
+                if (typeof(obj[chave]) == 'number'){
+                   console.log("Não mostramos números!");
+                }
+            }
+
+        }
+
+
+    </script>
+</body>
+</html>

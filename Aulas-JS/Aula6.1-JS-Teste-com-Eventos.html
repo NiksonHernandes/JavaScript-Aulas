@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos com JS</title>
+
+    <style>
+
+    </style>
+
+</head>
+<body>
+    <h1>Mini formulário: </h1>
+
+    <input id="txtnome" type="text" placeholder="Digite o seu nome aqui">
+    <br />
+    <span id='espan'></span>
+    </br>
+    <button id="evento" onclick="clique()">Exibir nome</button>
+
+    <p id="paragrafo">Seu nome é: </p>
+
+    <script>
+
+        /*window.onload = function(){ //função anônima
+            alert("Seja bem-vindo(a)");
+        }*/
+
+        //ARROW FUNCTION:
+        /*window.onload = () => alert("Seja Bem-Vindo(a)")*/
+        
+        let nome = document.getElementById("txtnome");
+        //var nome = document.getElementById("txtnome").value; NÃO FUNCIONA, PQ O VALOR DO ELEMENTO NÃO EXISTE AINDA
+        let escrever = document.getElementById('paragrafo');
+        
+        //MAIS RECOMENDADO:    
+        /*window.onload = () => {
+            document.getElementById('evento').onclick = () =>{
+                alert(nome.value);
+                escrever.innerHTML = nome.value;
+            }
+        }*/
+
+        window.onload = () => {
+
+            document.getElementById("evento").onclick = () => {
+                alert(nome.value);
+                escrever.innerHTML = `Seu nome é: ${nome.value}`;
+                document.getElementById('txtnome').value = ''; //limpa o campo input
+        
+            } 
+
+            document.getElementById('txtnome').onfocus = () =>{ //onfocus - mostra a mensagem abaixo do texto qnd vc clica nele
+                document.getElementById('espan').innerHTML = 'Informe o seu nome!';
+            }
+
+            document.getElementById('txtnome').onblur = () =>{//onblur - qnd vc sai do campo ele limpa a mensagem de onfocus
+                document.getElementById('espan').innerHTML = '';
+            }
+            
+            
+        }
+
+        </script>
+</body>
+</html>

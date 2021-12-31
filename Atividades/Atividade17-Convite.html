@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convite</title>
+</head>
+<body>
+    <h1>Festa Vip</h1>
+    <h2>Bem vindo a festa senhor(a):</h2>
+    <input type="text" name="camp1" id="camp1" placeholder="Digite o seu nome">
+    <h2>Quem te convidou para essa festa?</h2>
+    <input type="text" name="camp2" id="camp2" placeholder="Quem te condidou?">
+    <button type="button" id='btn'>Verificar se posso entrar</button>
+    <h2>Você está permitido a entrar?</h2>
+    <span id='resp'>Pesquisando...</span>
+
+    <script>
+        function verificarEntrada(camp1, camp2) {
+
+            convidadosCristian = ['João', 'Maria', 'Paulo', 'Alex', 'Nikson'];
+            
+            if(convidadosCristian.includes(camp1) && camp2 ==='Cristian'){
+                return 'Você pode entrar!'
+            }else{
+                return 'Você não pode entrar!'
+            }
+
+        }
+
+        window.onload = () =>{
+            let nome = document.querySelector("#camp1");
+            let camp2 = document.querySelector("#camp2");
+            document.querySelector("#btn").onclick = () =>{ 
+                if(nome.value != '' && camp2.value != ''){
+                    document.querySelector("#resp").innerHTML = verificarEntrada(nome.value, camp2.value);
+                }else{
+                    alert("Preencha todos os campos")
+                }
+            }
+        }
+
+
+
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Aula 4 - Variáveis</title>
+</head>
+<body>
+
+	<h1 style="color: Dodgerblue; font-size: 60px; text-align: center;">Aula de Variáveis</h1>
+
+	<script>
+
+		let idade = 5;	
+		console.log(idade);
+
+		const MENSAGEM="Olá mundo!";
+		console.log(MENSAGEM);
+
+		//pedir informação para o usuário:
+
+		confirm("Seja Bem-vindo(a)! \nEstá é uma calculado que soma 2 valores.")
+
+		let valor1 = parseFloat(prompt("Informe o valor 1: ", "10"));//caixa de texto
+		//parseInt ou parseFloat para converter o valor de string para number.
+
+		let valor2 = parseFloat(prompt("Infome o valor 2: ", "20"));
+		
+		let soma = valor1 + valor2;
+
+		if(isNaN(valor1) || isNaN(valor2))
+		{
+			alert("POR FAVOR, INSIRA UM NUMERO!");
+			document.write("NÃO FOI POSSÍVEL ANALISAR OS SEUS VALORES!");
+
+		}else
+		{
+			alert(`A soma é: ${soma}` );
+			document.write(`A soma entre ${valor1} + ${valor2} = ${soma}`);
+
+		}
+
+	</script>
+
+</body>
+</html>

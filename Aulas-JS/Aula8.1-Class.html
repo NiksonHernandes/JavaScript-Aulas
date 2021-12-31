@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        class cliente {
+            constructor(nome, cpf, rg, bairro){//para inicializar
+                this._nome = nome; //propriedade nome recebe o valor de nome que eu informar
+                this._cpf = cpf;
+                this._rg = rg //se tem o this na frente é a propriedade. 
+                this._bairro = bairro;
+            } 
+
+        }
+
+        //new para criar/passar o grupo de valores
+        var joao = new cliente('João paulo', "469179458-11", "458696566-7", "Centro");
+        var maria = new cliente("Maria Clara", "4694782256-8", "48784546-5", "Jardinópolis");
+
+        //exemplo 2: 
+        class Pessoa {
+            constructor(name){//método construtor 
+                this._name = name; 
+            } 
+
+            //metodos ou função diretamente na class:
+            vivo (){
+                return `${this._name} está vivo!`
+            }
+
+
+        }   
+        var paulo = new Pessoa("Paulo")
+        //console.log(paulo.vivo());
+        
+
+        //fazendo uma classe com função:
+
+        const Livro = function(nome, editora, paginas) {
+            gNome = nome,
+            gEditora = editora,
+            gPaginas = paginas
+
+            this.pegaNome = function(){
+                return gNome
+            }
+            this.pegaEditora = function(){
+                return gEditora
+            }
+            this.pegaPaginas = function(){
+                return gPaginas
+            }
+        }
+
+
+        const Aventura = new Livro ("Aventuras de Jorgin", "Nikson Editora LTDA", 290)//new Livro - criando uma nova instancia em Livro
+
+        console.log(Aventura.pegaNome())
+        console.log(Aventura.pegaEditora())
+        console.log(Aventura.pegaPaginas())
+        
+        //funções são objetos! 
+
+        //CLASSES. EXEMPLO ACIMA COM CLASSES:
+
+        class Livro2 {
+            constructor(nome, editora, paginas){
+                this._nome = nome,
+                this._editora = editora,
+                this._paginas = paginas
+            }
+            anunciarTitulo(){
+                console.log(`Título: ${this._nome}`)
+            }
+            descreverTitulo(){
+                console.log(`${this._nome} é o nome do livro, ele tem ${this._paginas} paginas e sua editora é a ${this._editora}`)
+            }
+        }
+        
+        const Acao = new Livro2("Uma ação efetiva na cozinha", "CoziComCore FUIT", 195);
+        Acao.anunciarTitulo();
+        Acao.descreverTitulo();
+
+        const Terror = new Livro2()
+        //Diferença entre classes e funções:
+        /*
+        -Classes não sofrem hosting, são puxadas para cima;
+        -Maior legibilidade com classes      
+        */
+
+        //HERANÇA: - Adicionar uma informação extra em alguma propriedade
+        //usando a palavra chave EXTENDS para extender a classe Livros2
+
+        class LivroColecao extends Livro2{
+            constructor(nome, nomeColecao){
+                super(nome) //é a propriedade que eu quero adicionar info a mais 
+                this._nomeColecao = nomeColecao
+            }
+            
+            descreverColecao(){
+                console.log(`O livro ${this._nome} faz parte da coleção: ${this._nomeColecao}`);
+                // ${this._nome} -> puxa da Class Livro2
+            }
+        }
+
+        const ColecaoLivrosAcao = new LivroColecao("Uma ação efetiva na cozinha", "Coleção de livros culinários de ação")
+        ColecaoLivrosAcao.descreverColecao();
+
+
+
+
+
+    </script>
+</body>
+</html>

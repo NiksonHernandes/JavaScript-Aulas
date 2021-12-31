@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math, String e Date</title>
+</head>
+<body>
+    <script>
+
+        //FUNÇÃO MATH
+        console.log(Math.random()) //gera um número aleatório entre 0 até 1
+
+        console.log(Math.random() *10)//retorna um número entre 0 e 10 -> não inclusivo
+
+        console.log(Math.max(3, 5, 7, 12, 1, 4))//retorna o maior número
+        console.log(Math.min(3, 5, 7, 12, 5, 4))//retorna o menor numero 
+
+
+        //MÉTODOS DE UMA STRING
+        //tipo primitivo:
+            const mensagem = "   minha primeira mensagem   ";
+            console.log(typeof mensagem) //retorna: 'string'
+            console.log(mensagem.length)
+            console.log(mensagem[1])//segunda letra do string acima, que se torna um objeto, pois é automaticamente encapsulado.
+            console.log(mensagem.includes('primeira')) //encontra a palavra na frase e retorna boolean true ou false
+            //qual é índice da palavra 'primeira'? o indice que começa a palavra
+            console.log(mensagem.indexOf('primeira'))
+            console.log(mensagem.replace('primeira', 'NOSSSAAA'))//substitui o primeiro valor pelo segundo. 
+            console.log(mensagem.trim())//tira os espaços excedentes no inicio ou no final
+        //tipo objeto: 
+            const outraMensagem = new String('Hello World!')
+            console.log(typeof outraMensagem)//retorna: 'object'
+            console.log(outraMensagem.length)
+            console.log(outraMensagem[1])
+            console.log(outraMensagem.includes("world"))//false, pois é CaseSensitive
+
+        //FUNÇÃO DATE 
+        const data1 = new Date();
+        console.log(data1.getFullYear())
+        
+        const meses = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+        const m = new Date();
+        let mes = meses[m.getMonth()]
+        console.log(mes)
+
+
+
+    </script>
+</body>
+</html>

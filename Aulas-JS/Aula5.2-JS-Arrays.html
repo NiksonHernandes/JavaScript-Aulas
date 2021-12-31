@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrays</title>
+</head>
+<body>
+    <script>
+        /*
+        let colega = [
+            "Nikson",
+            "Monte Alto",
+            "Homem"
+        ];
+
+        let aux = ' '; //armazena string;
+
+        for(let indice in colega)
+        {
+            aux = aux + colega[indice] + `<br>`;
+        }
+
+        document.write(aux);
+        */
+
+        /*executar os elementos do array:
+        let total_elementos = colega.length;
+        let aux = ''; // '' -  pra dizer q vai entrar uma string; nikson+br+paulo+br+montealto...
+
+        for(var i = 0; i < total_elementos; i++){
+            aux = aux + colega[i] + `<br>`;
+        }
+        document.write(aux);*/
+
+        // MATRIZ:
+
+        /*
+        let matriz = [];
+
+        matriz.push(['1a', '1b', '1c']);
+        matriz.push(['2a', '2b', '2c']);
+
+        let aux2 = ' ';
+
+        console.log(matriz);
+
+        console.log(matriz.length);//2 
+        console.log(matriz[0].length);//3
+
+        for(let linha = 0; linha < matriz.length; linha ++)
+        {
+            for(let coluna = 0; coluna < matriz[linha].length; coluna ++)
+            {
+                aux2 = aux2 + matriz[linha][coluna] + `\t`;
+            }
+            aux2 = aux2 + `<br>`;
+
+        }
+        document.write(aux2);
+        */
+
+        let cidades = [
+            "Monte Alto",
+            "São Paulo",
+            "Santos"
+        ];
+        cidades.push("Cantos", "Vista Alegre");
+
+        let nomes = ["Paulo", "Miguel", "João"];
+        nomes.push("Nikson", "Julia");
+
+        let totalcidades = cidades.length;
+
+        let auxHtml = '<ul>';
+        
+        for(var i = 0; i < totalcidades; i++){
+            auxHtml = auxHtml + '<li>' + cidades[i] + '</li>';
+        }
+    
+        auxHtml = auxHtml + '</ul>';
+
+        document.write(auxHtml);
+
+
+
+    </script>
+</body>
+</html>
