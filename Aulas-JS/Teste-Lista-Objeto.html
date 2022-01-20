@@ -80,9 +80,21 @@
         }
 
         function clique() {
-            alert('hi')
-        }
 
+            if(armazena == ''){
+                alert("Adicione um item antes de ver a lista completa!")
+            }else if(armazena != ''){
+                let confirma = confirm("Deseja ir para lista Completa?")
+
+                if(confirma == true){
+                    document.getElementById('lista_html').innerHTML = ''
+                    for(let indice in armazena){
+                        document.getElementById('lista_html').innerHTML += `<li> Item: ${armazena[indice]._item} \n ~/~ Código: ${armazena[indice]._codigo} <br><br> </li>`
+                    }
+                }                       
+            }
+            
+        }
         var armazena = [];
 
         window.onload = () =>{
