@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        div#quadrado{
+            font-family: 'Courier New', Courier, monospace;
+            background-color: green;
+            color: white;
+            height: 200px;
+            width: 200px;
+            text-align: center;
+            line-height: 200px;
+            box-shadow: 2px 2px 2px 1px black;
+        }
+
+    </style>
+
+</head>
+<body>
+    <div id="quadrado" > Aguardando... </div>
+    <script>
+        var div = document.getElementById("quadrado");
+        div.addEventListener("mouseenter", entrar); 
+        div.addEventListener("click", clicar);
+        div.addEventListener("mouseout", sair);
+
+        function entrar(){
+            div.innerText = "Entrou";
+        }
+
+        function clicar(){
+            div.innerText = "Clicou!";
+            div.style.backgroundColor = "red"
+        }
+
+        function sair(){
+            div.innerText = "Saiu";
+            div.style.backgroundColor = "green"
+        }
+
+    </script>
+</body>
+</html>

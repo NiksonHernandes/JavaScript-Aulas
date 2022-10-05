@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>addEventListener</title>
+
+    <style>
+        
+        div#quadrado{
+            font-family: 'Courier New', Courier, monospace;
+            background-color: aquamarine;
+            width: 70px;
+            height: 70px;
+            text-align: center;
+            line-height: 70px;
+            box-shadow: 2px 2px 2px 1px black;
+
+        }
+
+
+    </style>
+
+
+</head>
+<body>  
+    <h1>Eventos com addEventListener</h1>
+    <div id="quadrado" >...</div>
+    <script>    
+        var q= document.querySelector("#quadrado");
+        
+       q.addEventListener("click", clicou);
+
+       function clicou(e){
+            q.style.backgroundColor = "red"
+
+            alert(`O evento (${e.type}) foi enviado pelo elemento ${e.target.id}`);
+       }
+
+       /*
+        Propriedades:
+            Type - O tipo de evento que esta lidando;
+            Target - O elemento que disparou o evento
+       */
+
+       q.addEventListener("mouseover", entrada);
+       q.addEventListener("mouseout", saida);
+
+       function entrada(e){
+            q.style.backgroundColor = "blue"
+       }
+       function saida(e){
+            q.style.backgroundColor = "aquamarine"
+       }
+
+    
+
+    </script>
+</body>
+</html>

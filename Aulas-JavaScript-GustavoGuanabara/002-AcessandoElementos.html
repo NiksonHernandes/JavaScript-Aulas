@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body{
+            background-color: rgb(125, 125, 205);
+            color: white;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 18px;
+        }
+    </style>
+    
+</head>
+<body>
+    <h1>Acessando elementos do Document Object Model</h1> 
+    <p>Aqui vai o resultado do getElementByClassName</p>
+    <p id="p" >Aqui vai o resultado do getElementByID</p>
+    <p class="ok" >Aqui vai o resultado querySelector</p>
+    <div>O meu texto esta no <strong>strong</strong></div>
+
+    <hr>
+
+    <script>
+        /*
+            Por tag(div, p): getElemetesByTagName()[];
+            Por ID: getElementByID();
+            Por Name: getElementsByName();
+            Por Classe: getElementByClassName();
+
+            Novo jeito: 
+            querySelector("div#nomeDaDiv");
+            querySelectorAll()
+        */
+
+        var corpo = document.body;
+        //corpo.style.backgroundColor = "green";
+
+        var p1 = document.getElementsByTagName('p')[0];
+        p1.innerText = "Eu alterei o valor!"
+        
+        p1.style.backgroundColor = "red";
+
+        var p2 = document.getElementById("p");
+        document.write(p2.innerHTML + "<br>");
+
+        var p3 = document.querySelector("p.ok");
+        document.write(p3.innerHTML );
+
+
+    </script>
+</body>
+</html>
