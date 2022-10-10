@@ -6,6 +6,8 @@ let tamanho = num.length;
 
 console.log(`O vetor tem tamanho de ${tamanho} e os seguintes elementos: ${num} \n`);
 
+
+//FOR... IN COM ARRAYS
 for(let pos in num){ //para cada posição dentro do NUM
     console.log(`A posição ${pos} tem o valor ${num[pos]}`);
 }
