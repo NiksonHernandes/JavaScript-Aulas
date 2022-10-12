@@ -31,4 +31,4 @@ function criarEndereco(rua, bairro, cidade, habitante){
 
 const endereco1 = criarEndereco("Fagundes", "joaquim", "SP", 1233);
 console.log(endereco1);
-console.log(endereco1.descricao())
+endereco1.descricao()

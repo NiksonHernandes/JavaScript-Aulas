@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="lista"></div>
+
+    <script>
+        let lista = document.getElementById("lista");
+
+        fetch("./dados.json")
+            .then(response => {
+                return response.json();
+            })
+            .then(dado => {
+                console.log(dado);
+
+                return dado.map(user => {
+                    let li = document.createElement('li');
+                    li.innerHTML = `Dia: ${user.dia}`;
+                    lista.appendChild(li)
+
+                })
+            })
+            .catch(err => {
+                console.log("Erro: " + err);
+            })
+
+    </script>
+</body>
+
+</html>
