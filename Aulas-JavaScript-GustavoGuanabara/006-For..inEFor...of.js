@@ -1,7 +1,6 @@
 
 //FOR..IN -> PODE SER USANDO EM OBJETOS E ARRAYS
 
-
 //COM OBJETOS
 const pessoa = {
     nome: "Carlos",
