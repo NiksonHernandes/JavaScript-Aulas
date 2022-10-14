@@ -1,0 +1,14 @@
+body{
+    background-color: rgba(177, 176, 176, 0.933);
+    font-family: 'Courier New', Courier, monospace;
+}
+
+header{
+    text-align: center;
+    text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.453);
+}
+
+footer{
+    text-align: center;
+    font-style: italic;
+}
