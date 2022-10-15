@@ -19,7 +19,35 @@ function geraObjCadastro(nomeProduto, descProduto, valorProduto){
 }
 
 //array que armazena o obj
-let armazena = [];
+let armazena = [
+    {
+        nomeProduto: "Abacaxi",
+        descProduto: "Fruta",
+        valorProduto:  12
+
+    },
+    {
+        nomeProduto: "Pão de alho",
+        descProduto: "Pão feito com alho",
+        valorProduto:  34
+
+    },
+    {
+        nomeProduto: "Caixa de chocolate",
+        descProduto: "Chocolate em uma caixa",
+        valorProduto:  54
+
+    },
+    {
+        nomeProduto: "Banana",
+        descProduto: "Fruta",
+        valorProduto:  4
+
+    },
+
+];
+
+let valores = [1, 6, 2, 6, 7, 1, 3]
 
 //adicionar Array
 function adicionarObjNoArray(valor, lista){
@@ -27,18 +55,22 @@ function adicionarObjNoArray(valor, lista){
 }
 
 //função lista
-function renderLista(lista){
+function renderLista(lista, valores){
+    
     let listagem = '';
   
+    //ordena valores
+    lista.sort(function (a, b) { return a.valorProduto - b.valorProduto })
+
     lista.forEach(produtos => {
         listagem += 
         `
         <ul>
-            <li>Nome: ${produtos.nomeProduto} | Valor: ${produtos.valorProduto}</li> <br>
+            <li>Nome: ${produtos.nomeProduto}  |  Valor: ${produtos.valorProduto}</li> <br>
         </ul> 
         `
     });
-    
+
     return listagem;
 }
 
@@ -48,17 +80,27 @@ let formEscondido = document.getElementById("formulario").hidden = false;
 btnCadastrar.addEventListener("click", function(){
      
     if(listaEscondida){
-        listaEscondida = document.getElementById("troca").hidden = false
-        formEscondido = document.getElementById("formulario").hidden = true     
+
+        if(nomeProduto.value != '' && descProduto.value != '' && valorProduto.value != '' 
+        && (vendaSim.checked == true ||vendaNao.checked == true)){
         
-        let adicionarProduto = geraObjCadastro(nomeProduto.value, descProduto.value, valorProduto.value);
-        adicionarObjNoArray(adicionarProduto, armazena);
-        console.log(armazena);
+            listaEscondida = document.getElementById("troca").hidden = false
+            formEscondido = document.getElementById("formulario").hidden = true
 
-        let trocaHTML = document.getElementById("troca");
-        const listagem = renderLista(armazena); 
-        trocaHTML.innerHTML = listagem;   
+            let adicionarProduto = geraObjCadastro(nomeProduto.value, descProduto.value, valorProduto.value);
+            adicionarObjNoArray(adicionarProduto, armazena);
+            console.log(armazena);
 
+            let trocaHTML = document.getElementById("troca");
+            const listagem = renderLista(armazena, valores); 
+            trocaHTML.innerHTML = listagem;   
+
+        }else{
+            alert("preencha todos os campos")
+            nomeProduto.focus();
+            
+        }
+        
 
     }else if(listaEscondida === false){
         listaEscondida = document.getElementById("troca").hidden = true
