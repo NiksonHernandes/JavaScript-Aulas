@@ -1,6 +1,6 @@
 body{
-    background-color: rgba(177, 176, 176, 0.933);
-    font-family: Arial, Helvetica, sans-serif
+    background-color: rgba(177, 176, 176, 0.674);
+    font-family: 'Times New Roman', Times, serif
 }
 
 header{
@@ -10,18 +10,53 @@ header{
 
 #troca{
     overflow-y: scroll;
-    min-height: 200px;
-    max-height: 200px;
+    min-height: 280px;
+    max-height: 280px;
 }
+
+
 section{
-    overflow-y: hidden;
     background-color: white;
+    font-size: 18px;
+    overflow-y: hidden;
     border-radius: 9px;
-    padding: 15px;
-    width: 500px;
+    padding: 20px;
+    width: 350px;
     height: auto;
     margin: auto; 
     box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.519);
+}
+
+section input{
+    font-size: 14px;
+    padding: 4px 4px;
+    margin: 7px 0;
+    border: 1px solid rgba(204, 204, 204, 0.75) ;
+    border-radius:  4px;
+    box-sizing: border-box;
+}
+
+section input.inputCustom{
+    width: 80%;
+    padding:10px 15px;
+    margin: 8px 0;
+}
+
+button{
+    background-color: #4cb251da;
+    color: white;
+    width: 100%;
+    padding: 10px 15px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+
+}
+
+button:hover{
+    background-color: #45a049;
 }
 
 footer{

@@ -47,26 +47,24 @@ let armazena = [
 
 ];
 
-let valores = [1, 6, 2, 6, 7, 1, 3]
-
 //adicionar Array
 function adicionarObjNoArray(valor, lista){
     lista.push(valor);
 }
 
 //função lista
-function renderLista(lista, valores){
+function renderLista(lista){
     
     let listagem = '';
   
     //ordena valores
     lista.sort(function (a, b) { return a.valorProduto - b.valorProduto })
-
+    
     lista.forEach(produtos => {
         listagem += 
         `
         <ul>
-            <li>Nome: ${produtos.nomeProduto}  |  Valor: ${produtos.valorProduto}</li> <br>
+            <li>Nome: ${produtos.nomeProduto}  |  Valor: ${Number(produtos.valorProduto).toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}</li> <br>
         </ul> 
         `
     });
@@ -92,7 +90,7 @@ btnCadastrar.addEventListener("click", function(){
             console.log(armazena);
 
             let trocaHTML = document.getElementById("troca");
-            const listagem = renderLista(armazena, valores); 
+            const listagem = renderLista(armazena); 
             trocaHTML.innerHTML = listagem;   
 
         }else{
