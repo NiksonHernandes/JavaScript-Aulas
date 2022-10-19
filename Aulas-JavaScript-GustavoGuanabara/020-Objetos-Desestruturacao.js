@@ -1,26 +1,3 @@
-//OBJETOS
-
-//DECLARAR/SINTAXE OBJETOS: 
-let pessoa = {
-    nome: "Rafael", //KEY-VALUE -> PROPRIEDADE: VALOR
-    idade: 24,
-    sobrenome: "Silva",
-    hobbies: ['correre', 'comer', 'jogar'],
-
-};
-//console.log(pessoa);
-
-//ADICIONANDO ELEMENTOS NO OBJ
-pessoa.sexo = "M";
-pessoa.saudacao = function (){
-    console.log(`Olá, meu nome é ${this.nome}`)
-};
-
-//APAGAR UMA PROPRIEDADE
-delete pessoa.sexo;
-
-
-//--------------------------------------------------------
 //MÉTODOS IMPORTANTES PARA USAR NOS OBJETOS
 
 const user = {
@@ -41,4 +18,9 @@ console.log(Object.values(user)) //-> RETORNA UM VETOR COM TODAS AS PROPRIEDADES
 console.log(Object.entries(user)) //-> RETORNA UM VETOR COM VÁRIOS SUB-VETORES DENTRO. CADA SUB-VETOR CONTEM AS CHAVES E VALORES DO OBJETO
 
 console.log(JSON.stringify(Object.values(user))) //-> RETORNA EM UM FORMATO JSON 
-  
+
+
+console.log("\n-----------------------------------\n")
+//-----------------------------------------------------------
+//DESESTRUTURAÇÃO -> REMOVER PARTE DO OBJETO PARA UMA VARIÁVEL A PARTE, POR EXEMPLO. 
+
