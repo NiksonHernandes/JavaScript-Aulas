@@ -21,6 +21,37 @@ console.log(JSON.stringify(Object.values(user))) //-> RETORNA EM UM FORMATO JSON
 
 
 console.log("\n-----------------------------------\n")
+
 //-----------------------------------------------------------
+
 //DESESTRUTURAÇÃO -> REMOVER PARTE DO OBJETO PARA UMA VARIÁVEL A PARTE, POR EXEMPLO. 
 
+//EM OBJETOS: 
+
+const cadastro = {
+    nome: "Marcos",
+    age: 34,
+    hobbies: {
+        one: "play football",
+        two: "sleep",
+       // three: "Ok"
+    }
+}
+
+//const nomeCadastro = cadastro.nome; MESMA COISA QUE: const {nome} = cadastro;
+const {nome, age: idade, hobbies: {three = "Ainda não definido"}} = cadastro;
+
+
+console.log(nome, idade, three);
+
+
+console.log("\n-----------------------------------\n")
+
+//-----------------------------------------------------------
+//COM FUNÇÕES
+
+function mostraNome({nome}){
+    return nome
+};
+
+console.log(mostraNome(cadastro));
