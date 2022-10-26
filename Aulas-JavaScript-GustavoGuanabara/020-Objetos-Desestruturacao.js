@@ -21,9 +21,7 @@ console.log(JSON.stringify(Object.values(user))) //-> RETORNA EM UM FORMATO JSON
 
 
 console.log("\n-----------------------------------\n")
-
 //-----------------------------------------------------------
-
 //DESESTRUTURAÇÃO -> REMOVER PARTE DO OBJETO PARA UMA VARIÁVEL A PARTE, POR EXEMPLO. 
 
 //EM OBJETOS: 
@@ -38,15 +36,14 @@ const cadastro = {
     }
 }
 
-//const nomeCadastro = cadastro.nome; MESMA COISA QUE: const {nome} = cadastro;
+//const nomeCadastro = cadastro.nome; 
+//MESMA COISA QUE: const {nome} = cadastro; você atribui o valor de nome a uma variável que tem o nome de NOME! 
 const {nome, age: idade, hobbies: {three = "Ainda não definido"}} = cadastro;
-
 
 console.log(nome, idade, three);
 
 
 console.log("\n-----------------------------------\n")
-
 //-----------------------------------------------------------
 //COM FUNÇÕES
 
