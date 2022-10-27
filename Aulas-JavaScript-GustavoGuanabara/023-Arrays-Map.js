@@ -1,0 +1,22 @@
+//MAP -> O MÉTODO MAP() INVOCA A FUNÇÃO CALLBACK PASSADA POR ARGUMENTO PARA CADA ELEMENTO DO ARRAY E DEVOLVE UM NOVO ARRAY COMO RESULTADO.
+
+/*
+    IMPORTANTE: 
+
+    1 - MAP SEMPRE RETORNA UM NOVO ARRAY DO MSM TAMANHO DO ARRAY ORIGINAL;
+    2 - VC N CONSEGUE USAR FILTRO OU EXCLUIR ELEMENTOS DENTRO DO MAP, JUSTIFICADO PELA QUESTÃO ANTERIOR;
+    3 - ELE É USADO QUANDO QUEREMOS TRANSFORMAR AS INFORMAÇÕES DO MEU ARRAY EM UMA OUTRA INFORMAÇÃO, MAS EM OUTRO ARRAY
+    
+*/
+
+const numeros = [1, 2, 3, 4, 6];
+
+const novoArray = numeros.map(item => {
+    //return item * 2;
+    if(item % 2 === 0){
+        return `${item}: par `;
+    }
+    return item;
+})
+
+console.log(JSON.stringify(novoArray));
