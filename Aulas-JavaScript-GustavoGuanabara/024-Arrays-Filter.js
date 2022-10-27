@@ -21,7 +21,7 @@ console.log(JSON.stringify(array.filter(somenteImpares)));
 
 //USANDO COM MAP
 const filtroSomaPar = array
-    .filter(item => item % 2 === 0)
+    .filter(item => item % 2 === 0) //depois de filtrar o array, eu posso percorrer ele multiplicando por 10
     .map(item => item *10);
 
 console.log(JSON.stringify(filtroSomaPar))
