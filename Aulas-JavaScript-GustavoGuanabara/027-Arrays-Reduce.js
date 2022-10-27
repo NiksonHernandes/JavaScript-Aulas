@@ -4,4 +4,12 @@
 
 const numeros = [1, 2, 3, 4, 5]
 
-const soma = numeros.reduce()
+const soma = numeros.reduce((acc, item) => {
+    return acc + item
+}, 0);
+
+//acc -> ACUMULATOR - NOME QUE SE DÁ AO NOVO OBJ QUE SERÁ CRIADO
+
+//0 -> VALOR INICIAL DESSA NOVA ESTRUTURA DE DADOS (ARRAY, OBJ) QUE EU QUERO CRIAR A PARTIR DO MEU ARRAY - INICIA A SOMA A PARTIR DO ZERO
+
+console.log(JSON.stringify(soma))
